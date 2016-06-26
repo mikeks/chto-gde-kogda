@@ -30,11 +30,11 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			this.TimerMin = new System.Windows.Forms.Timer(this.components);
+			this.MinuteTimer = new System.Windows.Forms.Timer(this.components);
 			this.wmp = new AxWMPLib.AxWindowsMediaPlayer();
 			this.button1 = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.trackBar1 = new System.Windows.Forms.TrackBar();
+			this.rountTimeTrackBar = new System.Windows.Forms.TrackBar();
 			this.label2 = new System.Windows.Forms.Label();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
@@ -45,16 +45,18 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.button3 = new System.Windows.Forms.Button();
+			this.resetButton = new System.Windows.Forms.Button();
+			this.blitzModeCheckbox = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.wmp)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.rountTimeTrackBar)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// TimerMin
+			// MinuteTimer
 			// 
-			this.TimerMin.Interval = 1000;
-			this.TimerMin.Tick += new System.EventHandler(this.TimerMin_Tick);
+			this.MinuteTimer.Interval = 1000;
+			this.MinuteTimer.Tick += new System.EventHandler(this.TimerMin_Tick);
 			// 
 			// wmp
 			// 
@@ -87,19 +89,19 @@
 			this.label1.Text = "00";
 			this.label1.Visible = false;
 			// 
-			// trackBar1
+			// rountTimeTrackBar
 			// 
-			this.trackBar1.LargeChange = 10;
-			this.trackBar1.Location = new System.Drawing.Point(15, 374);
-			this.trackBar1.Maximum = 70;
-			this.trackBar1.Minimum = 50;
-			this.trackBar1.Name = "trackBar1";
-			this.trackBar1.Size = new System.Drawing.Size(277, 45);
-			this.trackBar1.SmallChange = 10;
-			this.trackBar1.TabIndex = 3;
-			this.trackBar1.TickFrequency = 2;
-			this.trackBar1.Value = 60;
-			this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+			this.rountTimeTrackBar.LargeChange = 10;
+			this.rountTimeTrackBar.Location = new System.Drawing.Point(15, 374);
+			this.rountTimeTrackBar.Maximum = 70;
+			this.rountTimeTrackBar.Minimum = 20;
+			this.rountTimeTrackBar.Name = "rountTimeTrackBar";
+			this.rountTimeTrackBar.Size = new System.Drawing.Size(277, 45);
+			this.rountTimeTrackBar.SmallChange = 10;
+			this.rountTimeTrackBar.TabIndex = 3;
+			this.rountTimeTrackBar.TickFrequency = 2;
+			this.rountTimeTrackBar.Value = 60;
+			this.rountTimeTrackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
 			// 
 			// label2
 			// 
@@ -194,6 +196,7 @@
 			// 
 			// panel2
 			// 
+			this.panel2.Controls.Add(this.resetButton);
 			this.panel2.Controls.Add(this.button3);
 			this.panel2.Controls.Add(this.button2);
 			this.panel2.Controls.Add(this.button1);
@@ -214,16 +217,41 @@
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.button3_Click_1);
 			// 
+			// resetButton
+			// 
+			this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.resetButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.resetButton.Location = new System.Drawing.Point(941, 12);
+			this.resetButton.Name = "resetButton";
+			this.resetButton.Size = new System.Drawing.Size(261, 82);
+			this.resetButton.TabIndex = 7;
+			this.resetButton.Text = "RESET";
+			this.resetButton.UseVisualStyleBackColor = true;
+			this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+			// 
+			// blitzModeCheckbox
+			// 
+			this.blitzModeCheckbox.AutoSize = true;
+			this.blitzModeCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.blitzModeCheckbox.Location = new System.Drawing.Point(628, 219);
+			this.blitzModeCheckbox.Name = "blitzModeCheckbox";
+			this.blitzModeCheckbox.Size = new System.Drawing.Size(237, 35);
+			this.blitzModeCheckbox.TabIndex = 14;
+			this.blitzModeCheckbox.Text = "РЕЖИМ БЛИЦА";
+			this.blitzModeCheckbox.UseVisualStyleBackColor = true;
+			this.blitzModeCheckbox.CheckedChanged += new System.EventHandler(this.blitzModeCheckbox_CheckedChanged);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1303, 812);
+			this.Controls.Add(this.blitzModeCheckbox);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.trackBar1);
+			this.Controls.Add(this.rountTimeTrackBar);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.wmp);
 			this.KeyPreview = true;
@@ -234,7 +262,7 @@
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
 			((System.ComponentModel.ISupportInitialize)(this.wmp)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.rountTimeTrackBar)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.ResumeLayout(false);
@@ -244,11 +272,11 @@
 
 		#endregion
 
-		private System.Windows.Forms.Timer TimerMin;
+		private System.Windows.Forms.Timer MinuteTimer;
 		private AxWMPLib.AxWindowsMediaPlayer wmp;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TrackBar trackBar1;
+		private System.Windows.Forms.TrackBar rountTimeTrackBar;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button4;
@@ -259,6 +287,8 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button resetButton;
+		private System.Windows.Forms.CheckBox blitzModeCheckbox;
 	}
 }
 
