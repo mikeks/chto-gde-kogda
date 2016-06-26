@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ChtoGdeKogda.exe" version="1.0.0.1" publicKeyToken="5635a9fda046f57c" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="ChtoGdeKogda" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="ChtoGdeKogda.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.WMPLib.dll" size="53760">
+      <assemblyIdentity name="AxInterop.WMPLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>5iweWuNdTvBLx15/B/rkCakM3uNSilhprh3lHD2Af0Y=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ChtoGdeKogda.exe" size="15288">
+      <assemblyIdentity name="ChtoGdeKogda" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>xTXqKSiUQJGGezO3qGhCVkVknrv93NL8JMyeGkMgduo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.WMPLib.dll" size="330752">
+      <assemblyIdentity name="Interop.WMPLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>sA0f5GNQU1zXZUV+aR/InpTaAKxGXiiUEI7PC3oZHOk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ChtoGdeKogda.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6N7MliNbVJSIAIPrecIshMbZ7zEoKLr5SQvud4LDUOw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Dance_Macabre.mp3" size="1988736">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Y9XXyAj5Q1cGUrFCNlZ76hzJ4TKhbtqwY45AP/rWj8E=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="gong.mp3" size="23350">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>VW+XTh6/70Gz3lqUUbpoiuN7agp90liEzb9vYP2hTW0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="min-10-sec.mp3" size="12955">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>od9AE7u1FspDftQNLo8yzFX07eaKNjPs+xB1GTc828I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="min-start.mp3" size="18389">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>kQ4xGnEh/frSQctjGxYgVotEeucAN4uNkAKC2jaCgYI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="razd-mat.mp3" size="505984">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Lu05kU/CDuCvSmptoVc4kyQwBwy9jDfhv7LfB9jU0ds=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Sing_sing_sing.mp3" size="778368">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FdU984XK9TriRH0L05gQnR236rM8Xk2uDoru9JWHOrs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Thus_Sprach_Zarathustra.mp3" size="1405056">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>WkCbHWTq6OCrvJ9Uc5UpxbjwbiaHsV3eI3QbCcN/uT0=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=CORP\mkeskinov" issuerKeyHash="7dd4ce200ad56f509ce686d379d9308ae79ba6ae" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>eWptJc3o1nto0uf0ZouvgwUDMcGGHbIkk+OsfaC5CKY=</DigestValue></Reference></SignedInfo><SignatureValue>GzvXWmHouLCeFfhY0xuWmjZvqltkoCL5UnQJg+EPNvxyOD2ESsaXJFgnWNnHJ7Gg6qZBxZogXeHHyPpVejLwWh2+lZSJHtMM4zaaYN2IfTFV0PDvBCThfZRR6ZQr24XuIQK3f1fAXTOcFr7vjgZgPl4NZo/EFxjHnXFekWes0gA=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>pSFNNsa7XXBNum9ca5uis7c8AIQbWCXBXZoWuFQ0NPMG+qs+GYiE37CASu5iMjWH+egZXI67bTiXXDI56KX4mgESqLWPtr5Fczi3bWsugbMRmIFLXmt6ir35cnmoSugEsvAMuQNZCX452huFAmyQqo8vl0HelswrAzbsHrl0dlM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a608b9a07dace39324b21d86c131030583af8b66f4e7d2687bd6e8cd256d6a79" Description="" Url=""><as:assemblyIdentity name="ChtoGdeKogda.exe" version="1.0.0.1" publicKeyToken="5635a9fda046f57c" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=CORP\mkeskinov</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>fXfEKT+KImMgttNKFEvbK+aQ/kYUZU2zRxfCXbFdxcs=</DigestValue></Reference></SignedInfo><SignatureValue>PufMQFohZyPEL2U04NHTPw+kTenRLHSetKbMkSTTt8wD3kzbirP9/bQysmmQGyff4R9LsUGQfjjFT4XSoC95bxvYncGwF6/N/YhVpgnZTzfAjnPgquZaBV7k0nQASR5ktcvL599TqqCZ5QgPcC1iyhqJQFGBVyaVBI33BznQXPs=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>pSFNNsa7XXBNum9ca5uis7c8AIQbWCXBXZoWuFQ0NPMG+qs+GYiE37CASu5iMjWH+egZXI67bTiXXDI56KX4mgESqLWPtr5Fczi3bWsugbMRmIFLXmt6ir35cnmoSugEsvAMuQNZCX452huFAmyQqo8vl0HelswrAzbsHrl0dlM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQd9EV4uqmG4JCrOigVV6oljANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwAQwBPAFIAUABcAG0AawBlAHMAawBpAG4AbwB2MB4XDTE1MTIyNzIzMTAzOVoXDTE2MTIyNzA1MTAzOVowJzElMCMGA1UEAx4cAEMATwBSAFAAXABtAGsAZQBzAGsAaQBuAG8AdjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEApSFNNsa7XXBNum9ca5uis7c8AIQbWCXBXZoWuFQ0NPMG+qs+GYiE37CASu5iMjWH+egZXI67bTiXXDI56KX4mgESqLWPtr5Fczi3bWsugbMRmIFLXmt6ir35cnmoSugEsvAMuQNZCX452huFAmyQqo8vl0HelswrAzbsHrl0dlMCAwEAATANBgkqhkiG9w0BAQsFAAOBgQCPkL0bgKQHE/2MD2i83q3PN5qgBbHIfRF2p8r7FlweCdCRWPNKRmh5F141YLTa0E0gMyuprEjZ2oGmfsruiz5tQKSlWzPyUjM076DlHrIQLdmd1kIlFSARu0KRcEaB9ccUoSzW7+j2Ma5cwNgj/Fop8RVgNA7r0TYPTmRgEDe/7w==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
