@@ -44,9 +44,12 @@
 			this.button8 = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.button3 = new System.Windows.Forms.Button();
 			this.resetButton = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
 			this.blitzModeCheckbox = new System.Windows.Forms.CheckBox();
+			this.onePedalModeCheckbox = new System.Windows.Forms.CheckBox();
+			this.BlitzLabel = new System.Windows.Forms.Label();
+			this.BlitzTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.wmp)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.rountTimeTrackBar)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -76,7 +79,7 @@
 			this.button1.TabIndex = 1;
 			this.button1.Text = "МИНУТА!";
 			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.button1.Click += new System.EventHandler(this.minuteButtonClick);
 			// 
 			// label1
 			// 
@@ -122,7 +125,7 @@
 			this.button2.TabIndex = 5;
 			this.button2.Text = "Внимание! Вопрос!";
 			this.button2.UseVisualStyleBackColor = false;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
+			this.button2.Click += new System.EventHandler(this.gongButtonClick);
 			// 
 			// button4
 			// 
@@ -206,17 +209,6 @@
 			this.panel2.Size = new System.Drawing.Size(1303, 192);
 			this.panel2.TabIndex = 13;
 			// 
-			// button3
-			// 
-			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(628, 12);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(307, 158);
-			this.button3.TabIndex = 6;
-			this.button3.Text = "Внимание! Правильный ответ!";
-			this.button3.UseVisualStyleBackColor = true;
-			this.button3.Click += new System.EventHandler(this.button3_Click_1);
-			// 
 			// resetButton
 			// 
 			this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,6 +220,17 @@
 			this.resetButton.Text = "RESET";
 			this.resetButton.UseVisualStyleBackColor = true;
 			this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+			// 
+			// button3
+			// 
+			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button3.Location = new System.Drawing.Point(628, 12);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(307, 158);
+			this.button3.TabIndex = 6;
+			this.button3.Text = "Внимание! Правильный ответ!";
+			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.rightAnswerButtonClick);
 			// 
 			// blitzModeCheckbox
 			// 
@@ -241,11 +244,41 @@
 			this.blitzModeCheckbox.UseVisualStyleBackColor = true;
 			this.blitzModeCheckbox.CheckedChanged += new System.EventHandler(this.blitzModeCheckbox_CheckedChanged);
 			// 
+			// onePedalModeCheckbox
+			// 
+			this.onePedalModeCheckbox.AutoSize = true;
+			this.onePedalModeCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.onePedalModeCheckbox.Location = new System.Drawing.Point(1054, 647);
+			this.onePedalModeCheckbox.Name = "onePedalModeCheckbox";
+			this.onePedalModeCheckbox.Size = new System.Drawing.Size(234, 35);
+			this.onePedalModeCheckbox.TabIndex = 15;
+			this.onePedalModeCheckbox.Text = "ОДНА ПЕДАЛЬ";
+			this.onePedalModeCheckbox.UseVisualStyleBackColor = true;
+			// 
+			// BlitzLabel
+			// 
+			this.BlitzLabel.AutoSize = true;
+			this.BlitzLabel.Font = new System.Drawing.Font("Blackoak Std", 159.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BlitzLabel.ForeColor = System.Drawing.Color.Red;
+			this.BlitzLabel.Location = new System.Drawing.Point(358, 354);
+			this.BlitzLabel.Name = "BlitzLabel";
+			this.BlitzLabel.Size = new System.Drawing.Size(939, 286);
+			this.BlitzLabel.TabIndex = 16;
+			this.BlitzLabel.Text = "БЛИЦ!";
+			this.BlitzLabel.Visible = false;
+			// 
+			// BlitzTimer
+			// 
+			this.BlitzTimer.Interval = 1;
+			this.BlitzTimer.Tick += new System.EventHandler(this.BlitzTimer_Tick);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1303, 812);
+			this.Controls.Add(this.BlitzLabel);
+			this.Controls.Add(this.onePedalModeCheckbox);
 			this.Controls.Add(this.blitzModeCheckbox);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
@@ -289,6 +322,9 @@
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button resetButton;
 		private System.Windows.Forms.CheckBox blitzModeCheckbox;
+		private System.Windows.Forms.CheckBox onePedalModeCheckbox;
+		private System.Windows.Forms.Label BlitzLabel;
+		private System.Windows.Forms.Timer BlitzTimer;
 	}
 }
 

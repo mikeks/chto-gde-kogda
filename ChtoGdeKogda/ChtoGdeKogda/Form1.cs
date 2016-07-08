@@ -25,7 +25,7 @@ namespace ChtoGdeKogda
 			button1.BackColor = Color.DeepSkyBlue;
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void minuteButtonClick(object sender, EventArgs e)
 		{
 			if (MinuteTimer.Enabled)
 			{
@@ -84,7 +84,7 @@ namespace ChtoGdeKogda
 			RefreshSpeedLabel();
 		}
 
-		private void button2_Click(object sender, EventArgs e)
+		private void gongButtonClick(object sender, EventArgs e)
 		{
 			wmp.URL = "gong.mp3";
 		}
@@ -124,7 +124,7 @@ namespace ChtoGdeKogda
 			wmp.URL = "min-10-sec.mp3";
 		}
 
-		private void button3_Click_1(object sender, EventArgs e)
+		private void rightAnswerButtonClick(object sender, EventArgs e)
 		{
 			wmp.URL = "gong.mp3";
 		}
@@ -170,12 +170,26 @@ namespace ChtoGdeKogda
 
 		private void Form1_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if (e.KeyChar != 'b') return;
-
 			if ((DateTime.Now - lastPressTime).TotalMilliseconds > 600)
 			{
-				PedalPressed();
-			}
+				if (onePedalModeCheckbox.Checked)
+				{
+					if (e.KeyChar != 'b') return;
+					PedalPressed();
+				}
+				else
+				{
+					switch (e.KeyChar)
+					{
+						case 'a':
+							gongButtonClick(null, null);
+							break;
+						case 'c':
+							minuteButtonClick(null, null);
+							break;
+					}
+				}
+			}	
 
 			lastPressTime = DateTime.Now;
 
@@ -198,11 +212,41 @@ namespace ChtoGdeKogda
 			if (blitzModeCheckbox.Checked)
 			{
 				rountTimeTrackBar.Value = 20;
+				BlitzTimer.Enabled = true;
+				BlitzLabel.Visible = true;
 			} else
 			{
 				rountTimeTrackBar.Value = 60;
+				BlitzTimer.Enabled = false;
+				BlitzLabel.Visible = false;
 			}
 			RefreshSpeedLabel();
+		}
+
+		private void BlitzTimer_Tick(object sender, EventArgs e)
+		{
+			switch ((new Random().Next(5)))
+			{
+				case 0:
+					BlitzLabel.ForeColor = Color.Red;
+					break;
+				case 1:
+					BlitzLabel.ForeColor = Color.Green;
+					break;
+				case 2:
+					BlitzLabel.ForeColor = Color.Orange;
+					break;
+				case 3:
+					BlitzLabel.ForeColor = Color.Black;
+					break;
+				case 4:
+					BlitzLabel.ForeColor = Color.Violet;
+					break;
+				default:
+					BlitzLabel.ForeColor = Color.Blue;
+					break;
+			}
+
 		}
 	}
 }
