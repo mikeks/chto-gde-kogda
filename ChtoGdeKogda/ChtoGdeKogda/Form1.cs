@@ -15,14 +15,15 @@ namespace ChtoGdeKogda
 		public Form1()
 		{
 			InitializeComponent();
-			RefreshButtons();
+			wmp.uiMode = "none";
+			tbVolume_Scroll(null, null);
 		}
 
 		private void StopTimer()
 		{
 			MinuteTimer.Enabled = false;
 			label1.Visible = false;
-			button1.BackColor = Color.DeepSkyBlue;
+//			button1.BackColor = Color.DeepSkyBlue;
 		}
 
 		private void minuteButtonClick(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace ChtoGdeKogda
 				tm = 0;
 				label1.Text = "0";
                 label1.Visible = true;
-				button1.BackColor = Color.Red;
+//				button1.BackColor = Color.Red;
 			}
 		}
 
@@ -57,7 +58,7 @@ namespace ChtoGdeKogda
 			{
 
 				wmp.URL = "min-10-sec.mp3";
-				label1.ForeColor = Color.Red;
+				//label1.ForeColor = Color.Red;
             }
 			else if (tm >= tmEnd)
 			{
@@ -67,7 +68,7 @@ namespace ChtoGdeKogda
 
 			} else
 			{
-				label1.ForeColor = Color.Black;
+				//label1.ForeColor = Color.Coral;
 			}
 		}
 
@@ -75,7 +76,7 @@ namespace ChtoGdeKogda
 		{
 			tm10sec = rountTimeTrackBar.Value;
 			tmEnd = tm10sec + 10;
-			label2.Text = string.Format("Time: {0}/{1}", tm10sec, tmEnd);
+			label2.Text = string.Format("Время: {0}/{1} сек.", tm10sec, tmEnd);
 		}
 
 
@@ -94,10 +95,7 @@ namespace ChtoGdeKogda
 			wmp.URL = "gong.mp3";
 		}
 
-		private void button4_Click(object sender, EventArgs e)
-		{
-			wmp.URL = "razd-mat.mp3";
-		}
+
 
 		private void button5_Click(object sender, EventArgs e)
 		{
@@ -112,6 +110,11 @@ namespace ChtoGdeKogda
 		private void button7_Click(object sender, EventArgs e)
 		{
 			wmp.URL = "Dance_Macabre.mp3";
+		}
+
+		private void btnRazd_Click(object sender, EventArgs e)
+		{
+			wmp.URL = "razd-mat.mp3";
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
@@ -129,42 +132,36 @@ namespace ChtoGdeKogda
 			wmp.URL = "gong.mp3";
 		}
 
+		private void btnIntroduce_Click(object sender, EventArgs e)
+		{
+			wmp.URL = "intro.mp3";
+		}
+
+		private void btnRightAnswer_Click_1(object sender, EventArgs e)
+		{
+			wmp.URL = "rightAnswer.mp3";
+		}
+
+		private void btnWrongAnswer_Click(object sender, EventArgs e)
+		{
+			wmp.URL = "wrongAnswer.mp3";
+		}
+
+		private void btnZero_Click(object sender, EventArgs e)
+		{
+			wmp.URL = "zero.mp3";
+		}
+
+		private void btnVolchok_Click(object sender, EventArgs e)
+		{
+			var fn = "to-gde-kogda-volchok.mp3";
+			wmp.URL = wmp.URL == null || !wmp.URL.Contains(fn) ? fn : null;
+		}
+
 		private int cBtnsIndex = 0;
 		private Button cBtn;
 
-		void RefreshButtons()
-		{
-			Button[] btns; 
-			if (blitzModeCheckbox.Checked)
-			{
-				btns = new Button[] { button1 };
-			} else
-			{
-				btns = new Button[] { button2, button1, button3 };
-			}
 
-			if (cBtnsIndex >= btns.Length) cBtnsIndex = 0;
-			cBtn = btns[cBtnsIndex];
-
-			foreach (var b in btns)
-			{
-				b.BackColor = b == cBtn ? Color.Lime : Color.LightGray;
-			}
-
-			//cBtn.PerformClick();
-		}
-
-		void NextButton()
-		{
-			cBtnsIndex++;
-			RefreshButtons();
-		}
-
-		void PedalPressed()
-		{
-			if (cBtn != null) cBtn.PerformClick();
-			NextButton();
-		}
 
 		DateTime lastPressTime;
 
@@ -172,22 +169,21 @@ namespace ChtoGdeKogda
 		{
 			if ((DateTime.Now - lastPressTime).TotalMilliseconds > 600)
 			{
-				if (onePedalModeCheckbox.Checked)
+				switch (e.KeyChar)
 				{
-					if (e.KeyChar != 'b') return;
-					PedalPressed();
-				}
-				else
-				{
-					switch (e.KeyChar)
-					{
-						case 'a':
-							gongButtonClick(null, null);
-							break;
-						case 'c':
-							minuteButtonClick(null, null);
-							break;
-					}
+					case 'a':
+					case 'ф':
+						gongButtonClick(null, null);
+						break;
+					case 'c':
+					case 'с': // they are different!
+						minuteButtonClick(null, null);
+						break;
+					case 'b':
+					case 'и':
+						if (!miUseMiddlePedal.Checked) return;
+						btnVolchok_Click(null, null);
+						break;
 				}
 			}	
 
@@ -195,30 +191,20 @@ namespace ChtoGdeKogda
 
 		}
 
-		private void KeyboardTimer_Tick(object sender, EventArgs e)
-		{
 
-		}
-
-		private void resetButton_Click(object sender, EventArgs e)
-		{
-			cBtnsIndex = 0;
-			RefreshButtons();
-			StopTimer();
-        }
 
 		private void blitzModeCheckbox_CheckedChanged(object sender, EventArgs e)
 		{
 			if (blitzModeCheckbox.Checked)
 			{
-				rountTimeTrackBar.Value = 20;
-				BlitzTimer.Enabled = true;
+				rountTimeTrackBar.Value = 10;
 				BlitzLabel.Visible = true;
+				BlitzTimer.Enabled = true;
 			} else
 			{
-				rountTimeTrackBar.Value = 60;
-				BlitzTimer.Enabled = false;
+				rountTimeTrackBar.Value = 50;
 				BlitzLabel.Visible = false;
+				BlitzTimer.Enabled = false;
 			}
 			RefreshSpeedLabel();
 		}
@@ -231,7 +217,7 @@ namespace ChtoGdeKogda
 					BlitzLabel.ForeColor = Color.Red;
 					break;
 				case 1:
-					BlitzLabel.ForeColor = Color.Green;
+					BlitzLabel.ForeColor = Color.White;
 					break;
 				case 2:
 					BlitzLabel.ForeColor = Color.Orange;
@@ -247,6 +233,59 @@ namespace ChtoGdeKogda
 					break;
 			}
 
+		}
+
+
+
+		private void btnStop_Click(object sender, EventArgs e)
+		{
+			wmp.URL = null;
+			
+		}
+
+		private void button3_Click_1(object sender, EventArgs e)
+		{
+			wmp.settings.volume = 10;
+		}
+
+		private void tbVolume_Scroll(object sender, EventArgs e)
+		{
+			wmp.settings.volume = tbVolume.Value;
+			lbVolume.Text = $"Громкость: {tbVolume.Value}%";
+		}
+
+		private void miShowPlayer_Click(object sender, EventArgs e)
+		{
+			if (miShowPlayer.Checked)
+				wmp.uiMode = "full";
+			else
+				wmp.uiMode = "none";
+		}
+
+		int initialFadeOutVolume;
+
+		private void btnFadeOut_Click(object sender, EventArgs e)
+		{
+			if (FadeOutTimer.Enabled || string.IsNullOrEmpty(wmp.URL)) return;
+			FadeOutTimer.Enabled = true;
+			initialFadeOutVolume = wmp.settings.volume;
+		}
+
+		private void FadeOutTimer_Tick(object sender, EventArgs e)
+		{
+			if (wmp.settings.volume > 10)
+			{
+				//wmp.settings.volume -= 5;
+				tbVolume.Value -= 4;
+				tbVolume_Scroll(null, null);
+			} else
+			{
+				wmp.URL = null;
+				tbVolume.Value = initialFadeOutVolume;
+				tbVolume_Scroll(null, null);
+				//wmp.settings.volume = initialFadeOutVolume;
+				FadeOutTimer.Enabled = false;
+			}
 		}
 	}
 }
